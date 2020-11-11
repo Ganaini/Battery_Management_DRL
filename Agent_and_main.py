@@ -3,10 +3,6 @@
 
 Created on Tue Nov  10 18:58:11 2020
 
-v_114 notes: 1- Maybe we need discount factor"GAMMA" so that battery ain't 
-                useless. ---> no smart a** .. it's the opposite XD
-             2- reduced learning rate --> useless  
-             3- After many tries, I think I should try different algorithm
                         
 @author: mahmoud
 """
@@ -15,7 +11,6 @@ from Microgrid_env_126 import Microgrid
 
 from collections import namedtuple
 import numpy as np
-# from tensorboardX import SummaryWriter
 from torch.utils.tensorboard import SummaryWriter
 
 import torch
@@ -30,9 +25,6 @@ HIDDEN_SIZE = 128
 BATCH_SIZE = 16
 PERCENTILE = 70
 ITERATIONS = 50
-
-# to prevent from getting stuck at the same rejected action at the beginning
-# FORCED_RANDOM_START_ACTIONS = 1000
 
 
 class Net(nn.Module):
@@ -60,28 +52,13 @@ def iterate_batches(env, net, batch_size):
     obs = env.reset()
     sm = nn.Softmax(dim=1)
 
-    # forced_random_counter = 0
     while True:
         # time.sleep(0.001) # just to slow output screen
         obs_v = torch.FloatTensor([obs])
         act_probs_v = sm(net(obs_v))
         act_probs = act_probs_v.data.numpy()[0]
-        
-        # to prevent from getting stuck at the same rejected action at the beginning
-        # if forced_random_counter < FORCED_RANDOM_START_ACTIONS:
-        #     action = np.random.choice(21)
-        #     print('random action:',action)
-        # else:
-            # stick with the network weights
-            # after first 'FORCED_RANDOM_START_ACTIONS' iterations this will 
-            # be the only action sampling method
         action = np.random.choice(len(act_probs), p=act_probs)
-            # print('network action:',action)
-        
         # make sure the action doesn't violate soc limits
-        # temp_next_obs, temp_reward, temp_is_done, temp_ = env.step(action)
-        # if mg.SOC_Flag:
-        #     continue
         if not env.action_accepted(action):
             # print('rejected:',action)
             continue
@@ -90,7 +67,6 @@ def iterate_batches(env, net, batch_size):
         episode_reward += reward
         step = EpisodeStep(observation=obs, action=action)
         episode_steps.append(step)
-        # forced_random_counter += 1
         if is_done:
             e = Episode(reward=episode_reward, steps=episode_steps)
             batch.append(e)
