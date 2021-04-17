@@ -22,7 +22,7 @@ UNIT_PRICE = DF['System price (yen / kWhalfhour)']
 
 # T = 2928  # Time horizon of 2 months
 t0 = 0
-T = 1440 #  682468.60391453        April 2019
+T = 1440    #  682468.60391453        April 2019
             # -132188.972661305       May 2019
             # -31592.989632205004     June 2019
             #  592710.39805628        July 2019
