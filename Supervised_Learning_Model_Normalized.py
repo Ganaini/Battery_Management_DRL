@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Mar 16 16:12:25 2021
+1-  The training is done using Supervised Learning with Loads, PV generation, 
+    energy price, state of charge (SOC) as inputs and the optimal actions as targets.
+2-  Optimal action are obtained from linear optimization
 
 @author: mahmo
 """
