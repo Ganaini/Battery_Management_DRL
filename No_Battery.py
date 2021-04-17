@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Nov  7 01:07:46 2020
-
-baseline_100 notes: 1- 10 days
+This represents the energy cost without using battery
                     
 @author: mahmoud
 """
