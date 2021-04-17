@@ -17,8 +17,8 @@ from gym import spaces
 
 # np.random.seed(seed=0)
 
-# Import half-hourly time series data for a whole year (2007)
-DF = pd.read_csv(r'E:\Mahmoud\PhD_Work\Presentations\March_25_Forecast\April_Forecasted_CSV.csv')
+# Import half-hourly time series data for a whole year 
+DF = pd.read_csv(r'April_Forecasted_CSV.csv')
 # DAY_TIME_INTERVAL = np.array(DF['Time code'])  # 1:48
 PV_OUTPUT = np.array(DF['PV_Output (kw) '])
 LOAD_POWER = np.array(DF['Load (kw) '])
@@ -30,7 +30,7 @@ TIME_INTERVALS_A_DAY = 48
 K = 3  # number of actions
 # START = 12
 t0 = 0
-T = 48    # Time horizon of one episode
+T = 1440    # Time horizon of one episode
 SOC_MAX = 1.0
 SOC_Min = 0.0
 BATTERY_CAPACITY= 2800 # kwh
