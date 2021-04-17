@@ -2,10 +2,9 @@
 """
 Created on Wed Dec  9 23:54:37 2020
 
-1- use pandas to save delta batteries
-2- if deltabattery > 0:     --> 2
-   elif deltabattery == 0:  --> 1
-   else:                    --> 0    
+1-  The training is done using Supervised Learning with Loads, PV generation, 
+    energy price, state of charge (SOC) as inputs and the optimal actions as targets.
+2-  Optimal action are obtained from linear optimization   
 
 @author: mahmo
 """
@@ -21,7 +20,7 @@ import matplotlib.pyplot as plt
 
 import pandas as pd
 
-DF = pd.read_csv(r'E:\Mahmoud\PhD_Work\Presentations\March_25_Forecast\April_Forecasted_CSV.csv')
+DF = pd.read_csv(r'April_Forecasted_CSV.csv')
 PV_OUTPUT = np.array(DF['PV_Output (kw) '])
 LOAD_POWER = np.array(DF['Load (kw) '])
 UNIT_PRICE = np.array(DF['System price (yen / kWhalfhour)'])
@@ -34,7 +33,7 @@ MAX_DISCHARGE = -200 # kw/ho
 # T = 1440
 # T = 2928    # 48*61   2months
 t0 = 0
-T = 48
+T = 1440
 SOC_MIN = 0.0
 SOC_MAX = 1.0
 SOC_INIT = 0.00
@@ -182,7 +181,7 @@ class Theoritical_opt(object):
                                          'SOC': self.soc})
         delta_actions_df.to_csv(index=True)
         delta_actions_df.to_csv(
-            'E:\Mahmoud\PhD_Work\Presentations\March_25_Forecast\delta_actions_soc_A_day_Forecasted_101.csv')
+            'delta_actions_soc_A_day_Forecasted.csv')
   
 
     def nl_objective(self, soc):
