@@ -119,9 +119,6 @@ if __name__ == "__main__":
     PATH = r\A_day_trained_Normalized.pth'
     net.load_state_dict(torch.load(PATH))
     
-    # or load all
-    # PATH = r'E:\Mahmoud\PhD_Work\Presentations\Feb_8th\Model\april_all_165426.pth'
-    # net = torch.load(PATH) 
 
     objective = nn.CrossEntropyLoss()
     optimizer = optim.Adam(params=net.parameters(), lr=0.001)
