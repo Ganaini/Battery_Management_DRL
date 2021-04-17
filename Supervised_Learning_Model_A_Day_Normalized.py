@@ -21,7 +21,7 @@ LR = 0.001
 BATCH_SIZE = 32
 EPOCHS = 50000
 
-data_path = r"E:\Mahmoud\PhD_Work\Presentations\March_25_Forecast\A_day_Training.csv"
+data_path = r"A_day_Training.csv"
 df = pd.read_csv(data_path)
 
 y_train = df['Action']
@@ -146,10 +146,10 @@ if __name__ == '__main__':
     predicted_actions = train_preds.argmax(dim=1)   
         
     df_predictons = pd.DataFrame({'Supervised Predictions': predicted_actions})
-    df_predictons.to_csv(r'E:\Mahmoud\PhD_Work\Presentations\March_25_Forecast\Supervised_Predictions_Normalized_103.csv')
+    df_predictons.to_csv(r'Supervised_Predictions_Normalized.csv')
     
     # saving model parameters to use in initializing the DRL model parameters    
-    save_path = r'E:\Mahmoud\PhD_Work\Presentations\March_25_Forecast\Models\A_day_trained_Normalized_103.pth'
+    save_path = r'A_day_trained_Normalized.pth'
     torch.save(model.state_dict(), save_path)
         
 
