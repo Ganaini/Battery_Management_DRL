@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Mar 17 13:29:02 2021
+1-  This represents DRL agent training by using pretrained neural network.
+2-  The pretraining was done using Supervised Learning with Loads, PV generation, 
+    energy price, state of charge (SOC) as inputs and the optimal actions as targets.
+3-  Optimal action are obtained from linear optimization
 
-@author: mahmo
+@author: mahmoud
 """
 
-from Env_DQN_MG_107 import Microgrid
+from Microgrid_Env import Microgrid
 from collections import namedtuple
 import numpy as np
 from torch.utils.tensorboard import SummaryWriter
@@ -113,7 +116,7 @@ if __name__ == "__main__":
  
     # load state dict
     net = Net(obs_size, HIDDEN_SIZE, n_actions)
-    PATH = r'E:\Mahmoud\PhD_Work\Presentations\March_25_Forecast\Models\A_day_trained_Normalized_103.pth'
+    PATH = r\A_day_trained_Normalized.pth'
     net.load_state_dict(torch.load(PATH))
     
     # or load all
@@ -149,8 +152,8 @@ if __name__ == "__main__":
             print("FINISHED!")
             break
         
-    # Save Model
-    # save_path = r'E:\Mahmoud\PhD_Work\Presentations\Feb_8th\Model\July_dict_2800kW.pth'
-    # torch.save(net.state_dict(), save_path)
+    # Save Model parameters
+    save_path = r'DRL_parameters.pth'
+    torch.save(net.state_dict(), save_path)
         
     writer.close()
