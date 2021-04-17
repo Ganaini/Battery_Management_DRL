@@ -1,11 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Nov  11 22:10:24 2020
-
-v_104 notes: 1- Use t0 to start from different points
-             
-                          
-             
+This file represents the Microgrid environment, the step function and the reward function                                      
              
 @author: mahmoud
 """
