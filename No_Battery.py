@@ -12,19 +12,17 @@ import numpy as np
 import pandas as pd
 
 
-DF = pd.read_csv(r'E:\Mahmoud\PhD_Work\Presentations\March_25_Forecast\April_Forecasted_CSV.csv')
+DF = pd.read_csv(r'\April_Forecasted_CSV.csv')
 DAY_TIME_INTERVAL = DF['Time code']  # 1:48
 PV_OUTPUT = DF['PV_Output (kw) ']
 LOAD_POWER = DF['Load (kw) ']
 UNIT_PRICE = DF['System price (yen / kWhalfhour)']
 # SELL_PRICE = DF['random PV price(yen / kWhalfhour)']
 
-# t0 = 16080
-# T = 17568 
 
 # T = 2928  # Time horizon of 2 months
 t0 = 0
-T = 48 #  682468.60391453        April 2019
+T = 1440 #  682468.60391453        April 2019
             # -132188.972661305       May 2019
             # -31592.989632205004     June 2019
             #  592710.39805628        July 2019
