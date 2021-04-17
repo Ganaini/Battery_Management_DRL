@@ -61,4 +61,12 @@
     Episode Termination:
         when t == T
 
+![image](https://user-images.githubusercontent.com/41514480/115103383-67c2f580-9f8c-11eb-9766-87282adad4d7.png)
+
+![image](https://user-images.githubusercontent.com/41514480/115103389-75787b00-9f8c-11eb-906f-008ae8cd79d0.png)
+![image](https://user-images.githubusercontent.com/41514480/115103392-7d381f80-9f8c-11eb-8394-8bed124906fa.png)
+![image](https://user-images.githubusercontent.com/41514480/115103394-81643d00-9f8c-11eb-9d1a-e016ab610742.png)
+![image](https://user-images.githubusercontent.com/41514480/115103404-8aeda500-9f8c-11eb-9846-a169f50ea6c0.png)
+![image](https://user-images.githubusercontent.com/41514480/115103410-980a9400-9f8c-11eb-9b0c-6692b7c9efae.png)
+
  
