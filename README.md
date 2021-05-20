@@ -4,7 +4,7 @@
     Description:
         A bettery, PV, dynamic load, connected to maingrid through PCC.
         We need to control battery charge/discharge scheduling to reduce cost.
-        Cross Entropy method is used for training the agent.It's simple model-free, policy-based, 
+        DRL is used for training the agent.It's simple model-free, policy-based, 
         & on-policy Deep Reinforcement Learning (DRL) method.
         The policy is represented as a probability distribution over actions, which makes it very
         similar to a classification problem, with the amount of classes being equal to the amount
